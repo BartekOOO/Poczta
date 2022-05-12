@@ -1,0 +1,217 @@
+﻿<Window x:Class="Poczta.Ustawienia_konta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Poczta"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+       Title="Konto" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Dane osobowe:" Grid.Row="0" Grid.Column="1" FontSize="20"/>
+
+        <GroupBox Header="Imie" Grid.Row="1" Grid.Column="1" Margin="5,0,10,10">
+            <StackPanel>
+                <TextBox VerticalContentAlignment="Center" BorderThickness="0" Name="imie_blok" Focusable="false"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" Text="Imie:"  Width="189" Height="34"/>
+            </StackPanel>
+        </GroupBox>
+
+
+        <GroupBox Header="Nazwisko" Grid.Row="2" Grid.Column="1" Margin="5,0,10,10">
+            <StackPanel>
+                <TextBox VerticalContentAlignment="Center" BorderThickness="0" x:Name="nazwisko_blok" Focusable="false"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" Text="Nazwisko:"  Width="189" Height="37"/>
+            </StackPanel>
+        </GroupBox>
+
+
+        <GroupBox Header="Hasło" Grid.Row="3" Grid.Column="1" Margin="5,0,10,10">
+            <StackPanel>
+                <TextBox Text="*********" BorderThickness="0" VerticalContentAlignment="Center" Name="haslo_blok"  Focusable="False"   VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15"  Width="199" Height="40" />
+            </StackPanel>
+        </GroupBox>
+
+
+
+
+
+
+        <GroupBox Header="Miasto" Grid.Row="4" Grid.Column="1" Margin="5,0,10,10">
+            <StackPanel Margin="0,0,0,6">
+                <TextBox VerticalContentAlignment="Center" BorderThickness="0" Name="miasto_blok" Focusable="false"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" Text="Miasto"  Width="199" Height="38"/>
+            </StackPanel>
+        </GroupBox>
+
+
+
+
+
+
+
+
+        <GroupBox Header="Ulica i numer domu" Grid.Row="5" Grid.Column="1" Margin="5,0,10,10">
+            <StackPanel>
+
+                <TextBox VerticalContentAlignment="Center" BorderThickness="0" Name="numer_domu_i_ulica_blok" Focusable="false"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" Text="Ulica nr domu"  Width="194" Height="35"/>
+            </StackPanel>
+        </GroupBox>
+
+
+
+
+
+        <Button Grid.Row="6" Grid.Column="1" Margin="5" Content="Powrot" Click="powrot_do_glownej_strony_admina"/>
+
+        <Grid Grid.Column="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Usuń konto" Click="usun_konto_pokaz" Margin="10,15,0,15" Grid.Column="1" HorizontalAlignment="Left" Width="200" />
+            <Button Content="Ustaw imie i nazwisko" Click="zmien_imie_i_nazwisko_procedura" Grid.Column="0"  Margin="10,15,0,15" />
+        </Grid>
+
+
+
+        <Grid Grid.Column="3" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Ustaw nowe miejsce zamieszkania" Click="zmien_miejsce_zamieszkania"  Margin="10,15,0,15" HorizontalAlignment="Left" Width="208" />
+            <Button Content="Ustaw hasło" Grid.Column="1"  Click="zmiana_hasla_click" Margin="10,15,0,15" HorizontalAlignment="Left" Width="200" />
+        </Grid>
+
+
+        <Grid Grid.Column="3" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+        </Grid>
+
+
+
+
+
+
+
+
+        <GroupBox Visibility="Hidden" Grid.Row="4" Header="Zmiana imienia i nazwiska" Grid.Column="3" Grid.RowSpan="2" x:Name="zmiana_imienia_i_nazwiska">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Podaj nowe imie:" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="0"/>
+                <TextBox x:Name="nowe_imie_blok" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Width="150"/>
+                <TextBlock Text="Podaj nowe nazwisko:" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="0"/>
+                <TextBox x:Name="nowe_nazwisko_blok" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Width="150"/>
+                <Button Grid.Row="2" Grid.ColumnSpan="2" Click="zatwierdz_zmiane_imienia_i_nazwiska" VerticalAlignment="Center" Content="Zatwierdź" HorizontalAlignment="Center" Padding="7" Width="100"/>
+            </Grid>
+        </GroupBox>
+
+
+        <GroupBox Visibility="Hidden" Grid.Row="4" Header="Zmiana hasła" Grid.Column="3" Grid.RowSpan="2" x:Name="zmiana_hasla">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Podaj hasło:" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="0"/>
+                <TextBox x:Name="nowe_haslo1_blok" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Width="150"/>
+                <TextBlock Text="Powtórz hasło" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="0"/>
+                <TextBox x:Name="nowe_haslo2_blok" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Width="150"/>
+                <Button Grid.Row="2" Grid.ColumnSpan="2" Click="zatwierdz_zmiane_hasla" VerticalAlignment="Center" Content="Zatwierdź" HorizontalAlignment="Center" Padding="7" Width="100"/>
+            </Grid>
+        </GroupBox>
+
+
+
+
+        <GroupBox Visibility="Hidden" Grid.Row="4" Header="Usuwanie konta" Grid.Column="3" Grid.RowSpan="2" x:Name="usuwanie_konta_name">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Podaj hasło:" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="0"/>
+                <TextBox x:Name="nowe_haslo1_blok1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Width="150"/>
+                <TextBlock Text="Powtórz hasło" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="0"/>
+                <TextBox x:Name="nowe_haslo2_blok1" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Width="150"/>
+                <Button Grid.Row="2" Grid.ColumnSpan="2" Click="zatwierdz_usuwanie_konta" VerticalAlignment="Center" Content="Zatwierdź" HorizontalAlignment="Center" Padding="7" Width="100"/>
+            </Grid>
+        </GroupBox>
+
+
+
+
+        <GroupBox Visibility="Hidden" Grid.Row="4" Header="Zmiana miejsca zamieszkania" Grid.Column="3" Grid.RowSpan="2" x:Name="zmiana_miejsca_zamieszkania">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Podaj nowe miasto:" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="0"/>
+                <TextBox x:Name="nowe_miasto_blok" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" HorizontalAlignment="Left" Width="150"/>
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.85*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.37*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Podaj nową ulicę:" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Right" />
+                    <TextBox x:Name="nowa_ulica_blok"  Grid.Column="1" VerticalAlignment="Center" Margin="5,10,0,11" HorizontalAlignment="Left" Width="132"/>
+                    <TextBlock Text="Podaj Nr domu:" Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,12,19,11" Width="85" />
+                    <TextBox x:Name="nowy_nr_blok"  Grid.Column="2" VerticalAlignment="Center" Margin="100,10,0,11" HorizontalAlignment="Left" Width="38" Grid.ColumnSpan="2"/>
+                </Grid>
+                <Button Grid.Row="2" Grid.ColumnSpan="2" Click="zatwierdz_zmiane_zamieszkania" VerticalAlignment="Center" Content="Zatwierdź" HorizontalAlignment="Center" Padding="7" Width="100"/>
+            </Grid>
+        </GroupBox>
+
+
+
+    </Grid>
+</Window>

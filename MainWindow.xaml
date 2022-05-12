@@ -1,0 +1,27 @@
+﻿<Window x:Class="Poczta.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Poczta"
+        mc:Ignorable="d"
+        Title="Poczta - Logowanie" Height="350" Width="270">
+    <StackPanel>
+        <Label Content="Logowanie" FontSize="30" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+       
+        <GroupBox Header="Podaj email" Width="200" >
+            <StackPanel>
+                <TextBox Text="" Name="login_pole" VerticalAlignment="Center" FontSize="15" BorderThickness="0" Padding="5" Margin="0,0,0,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Podaj hasło" Margin="0,20,0,0" Width="200">
+            <StackPanel>
+                <PasswordBox x:Name="haslo_pole" VerticalAlignment="Center" FontSize="15" BorderThickness="0" Padding="5" Margin="0,0,0,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <Button Click="zaloguj_click" Content="Zaloguj" Width="170" Margin="0,15,0,0" Padding="5"/>
+        <Label MouseDoubleClick="rejestracja_click"  Content="Załóż konto" Margin="0,30,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Blue"/>
+    </StackPanel>
+</Window>

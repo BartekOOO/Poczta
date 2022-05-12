@@ -1,0 +1,21 @@
+﻿<Window x:Class="Poczta.Okno_odebranych_wiadomosci"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Poczta"
+        mc:Ignorable="d"
+        Loaded="wczytaj_tresc"
+        Title="Poczta - Wiadomość" Height="550" Width="800">
+    <Grid Background="LightGray">
+        <TextBox Margin="10,127,10,67" Focusable="False" FontSize="15" AcceptsReturn="True" TextAlignment="Justify" TextWrapping="Wrap" BorderThickness="0" x:Name="tresc_wiadomosci" />
+        <Label Content="Od:" FontSize="15" HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalAlignment="Top" Margin="10,10,0,0" Width="64"/>
+        <TextBox x:Name="od_kogo" Focusable="False" HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center"  FontSize="15" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="692" Margin="74,10,0,0"/>
+        <Label Content="Do:" FontSize="15" HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalAlignment="Top" Margin="10,45,0,0" Width="64"/>
+        <TextBox x:Name="do_kogo" Focusable="False"  HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center"  FontSize="15" TextWrapping="Wrap"  VerticalAlignment="Top" Width="692" Margin="74,45,0,0"/>
+        <Label Content="Temat:" FontSize="15" HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalAlignment="Top" Margin="10,80,0,0" Width="64"/>
+        <TextBox x:Name="temat_wiadomosci" Focusable="False"  HorizontalAlignment="Left" Height="30" VerticalContentAlignment="Center"  FontSize="15" TextWrapping="Wrap"  VerticalAlignment="Top" Width="692" Margin="74,80,0,0"/>
+        <Button x:Name="odpowiadanie_przycisk" Content="Odpowiedz" Click="odpowiedz_na_wiadomosc" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="10,457,0,0" Height="41"/>
+        <Button Content="Zamknij" Click="zmkanij_wiadomosc" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="256,457,0,0" Height="41"/>
+    </Grid>
+</Window>
